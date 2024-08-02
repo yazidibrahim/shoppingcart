@@ -29,3 +29,24 @@
 //     }).appendTo( "body" );
 //   });
 
+$(document).ready(function(){
+
+    $.ajax(
+        {
+            url:"https://fakestoreapi.com/products",
+            method:'get',
+            success:function(data){
+                $.each(data, function(index,value) {
+                    console.log('index: ' + index + '   ' + 'value: ' + value['price']);
+                })
+
+            },
+            error:function(error){
+                console.log(error);
+
+            }
+
+
+        }
+    )
+})
