@@ -37,16 +37,51 @@ $(document).ready(function(){
             method:'get',
             success:function(data){
                 $.each(data, function(index,value) {
-                    console.log('index: ' + index + '   ' + 'value: ' + value['price']);
+                    console.log(data)
+                    // console.log('index: ' + index + '   ' + 'value: ' + value['title']);
+                    // console.log('index: ' + index + '   ' + 'value: ' + value['price']);
+                    // console.log('index: ' + index + '   ' + 'value: ' + value['description']);
+                    // console.log('index: ' + index + '   ' + 'value: ' + value['image']);
+                    let title = value['title'];
+                    let price = value['price'];
+                    let description = value['description'];
+                    let image = value['image'];
+                    
+                    $("#img1").html(`<img height='150px' width='150px' src="${value['image']}">`)
+                    $(".play").off().click(function() {
+                        let link = $(this).data('link');
+                        $("#display").empty().append('<embed width="480" height="500" src="' + link + '">');
+                    });
+                    $('#t1').append(title[index]);
+                    $('#price1').append(price);
+                    
+                //    entering datas into the card
+                   
+                  
+
+                    
+
+
+
+
                 })
 
             },
             error:function(error){
                 console.log(error);
-
             }
-
-
         }
     )
+
+
+
+    //inserting datas into the card
+     
+    $('#t1').append(title);
+
+
+
+
+
+
 })
