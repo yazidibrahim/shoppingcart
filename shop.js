@@ -76,49 +76,77 @@ $.ajax(
                 console.log(price[i]);
                 $('#t'+i).append(title[i]);
                 $("#img"+i).html(`<img height='150px' width='150px' src="${image[i]}" >`);
-                $('#price'+i).append('$ '+price[i]);
                 $('#addc'+i).hide();
+                $('#remc'+i).hide();
+                $('#price'+i).append('$'+price[i]);
+             
+                $('#tc'+i).hide();
+                $('#qtyc'+i).hide();
+         
 
 
             }   
 //add item1
-            $('#add1').off().click(function(){
-                qty[1]=1;
-                $('#cart1').empty().append('<img height="150p" width="150px" src='+image[1]+' >');
-                // console.log("Quantity:"+qty); 
-                // $("#imgc1").html(`<img height='150px' width='150px' src="${image[1]}" >`);
-                $('#price1').text('22.3'); 
-                $('#addc1').show();
-                //add item1
-            $('#addc1').click(function(){
-                qty[1]+=1;
-                // $('#cart1').empty().append('<img height="150p" width="150px" src='+image[1]+' >');
-                console.log("Quantity:"+qty); 
-                // $("#imgc1").html(`<img height='150px' width='150px' src="${image[1]}" >`);
-                // $('#pricec1').append('$ '+price[1]);       
-            })      
+            $('.item').click(function(){
+                let price=$(this).prev('.price');
+                console.log(price.text());
+             
+                let pricing =price.text();
+                console.log(pricing);
+                // $('#cart1').append('<img height="150p" width="150px" src='+image[1]+' >');
+               $('#pricec').append('<h5 style=" margin-left: 200px ;margin-top: 20px;width: 500px;">'+pricing+'</h5>');
+               
+
             })
 
 
+
+
+
+
+            // $('#add1').off().click(function(){
+            //     qty[1]=1;
+            //     $('#cart1').empty().append('<img height="150p" width="150px" src='+image[1]+' >');
+            //    $('#addc1').show();
+            //     $('#pricec1').show();
+            //     $('#remc1').show();
+            //     $('#tc1').show();
+            // })
+            // $('#addc1').click(function(){
+            //     qty[1]+=1;
+            //     // $('#cart1').empty().append('<img height="150p" width="150px" src='+image[1]+' >');
+            //     console.log("Quantity:"+qty); 
+            //     $('#qtyc1').html('Qty:'+qty[1]);
+            //     $('#qtyc1').show();
+
+            // })    
+
             
 //remove item1
-            $('#rem1').click(function(){
+            $('#remc1').click(function(){
                 qty[1]-=1;
                 if(qty[1]==-1){
                     qty[1]=0;
                 }
-                $('#qty1').html('<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16"><path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/></svg>'+qty[1]);
-                console.log("Quantity:"+qty); 
-                $("#imgc1").html(`<img height='150px' width='150px' src="${image[1]}" >`);
-                $('#pricec1').append('$ '+price[1]);       
+                if(qty[1]==0){
+                    $('#item1').hide();
+                    $('#add1').click(function(){
+                        qty[1]=1;
+                    $('#item1').show();
+                    $('#qtyc1').hide();
+                    })
+                    }
+               console.log("Quantity:"+qty); 
+                $('#qtyc1').html('Qty:'+qty[1]);
+                $('#qtyc1').show();    
             })
 //add item2
-            $('#add2').click(function(){
-                qty[2]+=1;
-                $('#cart2').empty().append('<img height="150p" width="150px" src='+image[2]+' >');
-                $("#imgc2").html(`<img height='150px' width='150px' src='+image[2]+' >`);
-                $('#pricec2').append('$ '+price[2]);
-            })
+            // $('#add2').click(function(){
+            //     qty[2]+=1;
+            //     $('#cart2').empty().append('<img height="150p" width="150px" src='+image[2]+' >');
+            //     $("#imgc2").html(`<img height='150px' width='150px' src='+image[2]+' >`);
+            //     $('#pricec2').append('$ '+price[2]);
+            // })
 //remove item2
             $('#rem2').click(function(){
                 qty[2]-=1;
