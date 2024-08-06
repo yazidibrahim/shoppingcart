@@ -115,18 +115,52 @@ $.ajax(
                 $('#pric1').append('<div style="margin-top:117px"><h5 style = "margin-left:100px; margin-top:20px; width:500px;">'+$price.text()+'</h5></div>');
                 $('#cart1').append('<div style="margin-top:10px"><h5 style = "margin-left:10px; margin-top:20px; width:500px;">'+$image.html()+'</div>');
                 $('#tt1').append('<div style="margin-top:117px"><h5 style = "margin-left:10px; margin-top:20px; width:500px;">'+$name.text()+'</h5></div>' );
-                $('#addc').append('<a href="#" id ="addc"  class="btn btn-primary  align-text-bottom mt-auto" style="background-color:black ; margin-left: 600px ;width: 50px; margin-top: 70px; "  >+</a>');
-                $('#remc').append('<div class="block" ><a href="#" id ="remc1"  class="btn btn-primary  align-text-bottom mt-auto" style="background-color:black ; margin-left: 600px ;width: 50px; margin-top: 70px; "  >-</a></div>');
+                // $('.qty').append('<input type="text" class="inp">')
+                $('#addc').append('<label style="margin-top:30px;">QTY:</label><input type="number" class="inp" value=1 style="margin-top:10px;" ><div style="margin-top:23px"><a href="#"   class="btn btn-primary  align-text-bottom mt-auto addb" style="background-color:black ; margin-left: 600px ;width: 50px; margin-top: 10px; "  >+</a></div>');
+                $('#remc').append('<br><div style="margin-top:100px"><a href="#"  class="btn btn-primary  align-text-bottom mt-auto  remb" style="background-color:black ; margin-left: 600px ;width: 50px; margin-top: 70px; "  >-</a></div>');
                 $('#addc').show();
                 $('#remc').show();
-                     $(this).parent().parent().hide()
-                $('#addc1').click(function(){
-                    qty[1]+=1;
-                    console.log("Quantity:"+qty); 
-                    $('#qtyc1').html('Qty:'+qty[1]);
-                    $('#qtyc1').show();
-    
+                 $(this).parent().parent().hide()
+                $('.addb').click(function(){
+                q=parseInt($(this).parent().prev().val())
+                q=q+1;
+                $(this).parent().prev().val(q);
+                console.log(q);
                 }) 
+                $('.remb').click(function(){
+                    a=0;
+                    a=parseInt($(this).parent().parent().parent().prev().find('.inp').val())
+                    a=a-1
+                    if(a==-1){
+                        a=0;
+                    }
+                    $(this).parent().parent().parent().prev().find('.inp').val(a)
+                    // price = 0;
+                    // price = parseInt($(this).parent().parent().parent().prev().prev().find('.pric1').val())
+                    // console.log(price)
+                })
+
+                // $('#addc2').click(function(){
+                //     qty[2]+=1;
+                //     console.log("Quantity:"+qty); 
+                //     $('#qtyc1').html('Qty:'+qty[2]);
+                //     $('#qtyc1').show();
+                //     }) 
+                //     $('#remc1').click(function(){
+                //         qty[1]-=1;
+                //         console.log("Quantity:"+qty); 
+                //         $('#qtyc1').html('Qty:'+qty[1]);
+                //         $('#qtyc1').show();
+                //         if(qty[1]==-1){
+                //         qty[1]=0;
+                //         }
+                //     })
+    
+
+
+
+
+
         })
             // $('#add1').click(function(){
             //     let $price =$(this).prev();
@@ -143,13 +177,13 @@ $.ajax(
             //     $('#remc1').show();
             //     $('#tc1').show();
             // })
-            $('#addc1').click(function(){
-                qty[1]+=1;
-                console.log("Quantity:"+qty); 
-                $('#qtyc1').html('Qty:'+qty[1]);
-                $('#qtyc1').show();
+            // $('#addc1').click(function(){
+            //     qty[1]+=1;
+            //     console.log("Quantity:"+qty); 
+            //     $('#qtyc1').html('Qty:'+qty[1]);
+            //     $('#qtyc1').show();
 
-            })    
+            // })    
 
             
 //remove item1
