@@ -79,7 +79,6 @@ $.ajax(
                 $('#addc').hide();
                 $('#remc').hide();
                 $('#price'+i).append('$'+price[i]);
-             
                 $('#tc'+i).hide();
                 $('#qtyc'+i).hide();
          
@@ -112,20 +111,29 @@ $.ajax(
                 console.log($image.html());
                 let $name =$(this).prev().prev();
                 console.log($name.text());
-                $('#pric1').append('<div style="margin-top:117px"><h5 style = "margin-left:100px; margin-top:20px; width:500px;">'+$price.text()+'</h5></div>');
+                $('#pric1').append('<div style="margin-top:117px"><h5 style = "margin-left:80px; margin-top:10px; width:500px;">Price:'+$price.text()+'</h5></div>');
                 $('#cart1').append('<div style="margin-top:10px"><h5 style = "margin-left:10px; margin-top:20px; width:500px;">'+$image.html()+'</div>');
                 $('#tt1').append('<div style="margin-top:117px"><h5 style = "margin-left:10px; margin-top:20px; width:500px;">'+$name.text()+'</h5></div>' );
                 // $('.qty').append('<input type="text" class="inp">')
-                $('#addc').append('<label style="margin-top:30px;">QTY:</label><input type="number" class="inp" value=1 style="margin-top:10px;" ><div style="margin-top:23px"><a href="#"   class="btn btn-primary  align-text-bottom mt-auto addb" style="background-color:black ; margin-left: 600px ;width: 50px; margin-top: 10px; "  >+</a></div>');
+                $('#addc').append('<label style="margin-top:1px;">QTY:</label><input type="text" class="inp" value="$"  style="margin-left:600px;width:100px" ><input type="number" class="inp" value=1 style="margin-top:10px;" ><div style="margin-top:23px"><a href="#"   class="btn btn-primary  align-text-bottom mt-auto addb" style="background-color:black ; margin-left: 600px ;width: 50px; margin-top: 10px; "  >+</a></div>');
                 $('#remc').append('<br><div style="margin-top:100px"><a href="#"  class="btn btn-primary  align-text-bottom mt-auto  remb" style="background-color:black ; margin-left: 600px ;width: 50px; margin-top: 70px; "  >-</a></div>');
                 $('#addc').show();
                 $('#remc').show();
+                
                  $(this).parent().parent().hide()
+                let addtotal=0;
                 $('.addb').click(function(){
                 q=parseInt($(this).parent().prev().val())
                 q=q+1;
                 $(this).parent().prev().val(q);
                 console.log(q);
+                let add_price=($(this).parent().parent().parent().prev().prev().find('#pric1').text());
+                let pricea = parseFloat(add_price.replace('Price:$', ''));
+                console.log(add_price);
+                console.log(pricea);
+                addtotal+=pricea;
+                $(this).parent().prev().prev().val(addtotal);
+
                 }) 
                 $('.remb').click(function(){
                     a=0;
@@ -135,6 +143,13 @@ $.ajax(
                         a=0;
                     }
                     $(this).parent().parent().parent().prev().find('.inp').val(a)
+                    let add_price=($(this).parent().parent().parent().prev().prev().find('#pric1').text());
+                    let pricea = parseFloat(add_price.replace('Price:$', ''));
+                    console.log(add_price);
+                    console.log(pricea);
+                   console.log($(this).parent().prev().prev().text());
+                    pricea-=pricea;
+                    $(this).parent().prev().prev().val(pricea);
                     // price = 0;
                     // price = parseInt($(this).parent().parent().parent().prev().prev().find('.pric1').val())
                     // console.log(price)
