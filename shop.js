@@ -24,6 +24,7 @@ $(document).ready(function() {
                         </div>
                     </div>
                 `);
+                $('#buy').hide();
             }
 
             $('#append').on('click', '.bclass', function() {
@@ -50,10 +51,10 @@ $(document).ready(function() {
                             <input type="text" class="price form-control" value="${priceValue.toFixed(2)}" readonly>
                         </div>
                         <div class="col-md-1">
-                            <button class="btn btn-success addbutton">+</button>
+                            <button class="btn btn-success addbutton" style="background-color:black;">+</button>
                         </div>
                         <div class="col-md-1">
-                            <button class="btn btn-danger removebutton">-</button>
+                            <button class="btn btn-danger removebutton" style="background-color:black;">-</button>
                         </div>
                     </div>
                 `);
@@ -91,15 +92,157 @@ $(document).ready(function() {
                     totalPrice += parseFloat($(this).val());
                 });
                 $('#total').text('$' + totalPrice.toFixed(2));
+                $('#buy').show();
             });
             $('#clear-cart').click(function() {
                 $('#cart').empty();
                 $('#total').text('$0.00');
                 $('.prcard').show();
             });
+           
+
         },
         error: function(error) {
             console.log(error);
         }
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
